@@ -1,16 +1,6 @@
-import localFont from "next/font/local";
+"use client"; 
 import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { SessionProvider } from "next-auth/react";
 
 
 
@@ -21,11 +11,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className='mx-2'>
+        <SessionProvider>{children}</SessionProvider></body>
     </html>
   );
 }
