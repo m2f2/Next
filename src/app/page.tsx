@@ -1,15 +1,10 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import Link from "next/link";
 
 export default async function Home() {
-  const session = await getServerSession(authOptions);
 
   return (
     <div className="bg-black text-white min-h-screen flex flex-col items-center justify-center ">
-      {session ? (
-        <h1 className="text-3xl">Welcome {session.user?.name}</h1>
-      ) : (
+      {
         <div className="flex flex-col items-center gap-8">
           <h1 className="text-2xl">Please login first</h1>
           <Link href="/login">
@@ -21,7 +16,7 @@ export default async function Home() {
             </button>
           </Link>
         </div>
-      )}
+      }
     </div>
   );
 }
