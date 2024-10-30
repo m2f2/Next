@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 
-export function dbConnection(){
-    mongoose.connect(`mongodb+srv://Cluster29816:${process.env.SECRET}@cluster29816.kblontc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster29816/Next`).then(()=>{
-        console.log("connected to db");
-    }).catch((err)=>{
-        console.log(err);
-        
-    })
+export function dbConnection() {
+    mongoose.connect('mongodb://127.0.0.1:27017/Next')
+        .then(() => {
+            console.log("Connected to DB");
+        })
+        .catch((err) => {
+            console.log("DB connection error: ", err);
+        });
 }
